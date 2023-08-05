@@ -22,17 +22,21 @@ public class Calender {
     public static void main(String[] args) {
         Calender cal = new Calender();
         Scanner scn = new Scanner(System.in);
+
+
         boolean isRun = true;
-
-
-        cal.sampleCal();
-
-        System.out.print("반복하고 싶은 횟수를 적어요>");
-        int repeatNum = scn.nextInt();
-        for (int i = 0; i < repeatNum; i++) {
+        while (isRun) {
+            cal.sampleCal();
             System.out.print("월을 입력하세요>");
             int month = scn.nextInt();
-            cal.maxDaysOfMonth(month);
+            
+            if (month == -1) {
+                isRun = false;
+            }else if(month>=1 && month<=12){
+                cal.maxDaysOfMonth(month);
+            }else {
+                System.out.println("1-12 사이의 숫자만 넣어줘요");
+            }
         }
 
 
