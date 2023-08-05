@@ -6,7 +6,7 @@ public class Calender {
     private static final int[] MAX_DAYS = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     public void maxDaysOfMonth(int month) {
-        System.out.printf("%d월의 마지막 날은 %d입니다.", month, MAX_DAYS[month - 1]);
+        System.out.printf("%d월의 마지막 날은 %d입니다.\n", month, MAX_DAYS[month - 1]);
     }
 
     public void sampleCal() {
@@ -18,14 +18,22 @@ public class Calender {
         System.out.println("22 23 24 25 26 27 28 ");
     }
 
+
     public static void main(String[] args) {
         Calender cal = new Calender();
         Scanner scn = new Scanner(System.in);
-        cal.sampleCal();
-        System.out.print("월을 입력하세요>");
+        boolean isRun = true;
 
-        int month = scn.nextInt();
-        cal.maxDaysOfMonth(month);
+
+        cal.sampleCal();
+
+        System.out.print("반복하고 싶은 횟수를 적어요>");
+        int repeatNum = scn.nextInt();
+        for (int i = 0; i < repeatNum; i++) {
+            System.out.print("월을 입력하세요>");
+            int month = scn.nextInt();
+            cal.maxDaysOfMonth(month);
+        }
 
 
     }
